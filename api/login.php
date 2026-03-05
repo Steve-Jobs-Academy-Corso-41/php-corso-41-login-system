@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         session_start(); // Avvia la sessione
         $_SESSION['user_name'] = USER_NAME; // Memorizza il nome dell'utente
 
-        header('Location: ../dashboard.php'); // Reindirizza a una pagina protetta
+        header('Location: ../index.php'); // Reindirizza a una pagina protetta
         exit;
     } else {
         // Autenticazione fallita
