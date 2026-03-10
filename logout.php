@@ -1,9 +1,20 @@
 <?php
-unset($_SESSION['user_name']); // Rimuove la variabile di sessione che contiene il nome dell'utente
+/**
+ * LOGOUT
+ * 
+ * Distrugge la sessione dell'utente e reindirizza alla pagina di login.
+ */
 
-session_unset(); // Rimuove tutte le variabili di sessione
-session_destroy(); // Distrugge la sessione
+// 1. Avvio la sessione (necessario per poterla poi distruggere)
+//    NOTA: session_start() è obbligatorio anche per distruggere una sessione!
+session_start();
 
+// 2. Rimuovo tutte le variabili di sessione (es. $_SESSION['id'])
+session_unset();
 
-header('Location: login.php'); // Reindirizza alla pagina di login
+// 3. Distruggo la sessione sul server
+session_destroy();
+
+// 4. Reindirizzo alla pagina di login
+header('Location: login.php');
 exit;
